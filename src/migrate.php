@@ -1,7 +1,5 @@
 <?php
 
-include 'db_functions.php';
-
 // Path to the SQL file
 $sqlFilePath = 'norvi_dump.sql';
 
