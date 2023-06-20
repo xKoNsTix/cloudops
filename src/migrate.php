@@ -1,27 +1,23 @@
 <?php
 
-// Path to the SQL file
-$sqlFilePath = 'norvi_dump.sql';
+include 'db_functions.php';
+
+$statements = [
+    'CREATE TABLE IF NOT EXISTS visits (
+        visit timestamp
+    )'
+];
 
 try {
     $url = getenv("DATABASE_URL");
-    $params = parse_url($url);
-
-    // Generate DSN from params
-    $dsn = "{$params['scheme']}:host={$params['host']};dbname=".ltrim($params['path'], '/');
+    $params = parse($url);
+    $dsn = from_params($params);
 
     // make a database connection
-    $pdo = new PDO($dsn, $params['user'], $params['pass'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $pdo = new PDO($dsn, $params['user'], $params['password'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-    // Check if SQL file exists
-    if (file_exists($sqlFilePath)) {
-        // Read SQL file
-        $sql = file_get_contents($sqlFilePath);
-
-        // Execute SQL file
-        $pdo->exec($sql);
-    } else {
-        die("SQL file not found: $sqlFilePath");
+    foreach ($statements as $statement) {
+        $pdo->exec($statement);
     }
 } catch (PDOException $e) {
     die($e->getMessage());
