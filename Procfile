@@ -1,2 +1,2 @@
-web: vendor/bin/heroku-php-nginx cloudops/
+web: vendor/bin/heroku-php-nginx /
 
