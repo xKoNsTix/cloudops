@@ -1,7 +1,5 @@
 <?php
 
-
-
 $statements = [
     'CREATE TABLE IF NOT EXISTS images (
         image_id serial PRIMARY KEY,
@@ -41,7 +39,6 @@ $statements = [
 ];
 
 try {
-
     $DB_NAME = getenv('DB_NAME');
     $DB_USER = getenv('DB_USER');
     $DB_PASS = getenv('DB_PASS');
@@ -52,12 +49,12 @@ try {
     $db = new PDO($DSN, $DB_USER, $DB_PASS);
 
     foreach ($statements as $statement) {
-        $pdo->exec($statement);
+        $db->exec($statement);
     }
 
     echo "Tables created successfully.";
 } catch (PDOException $e) {
     die($e->getMessage());
 } finally {
-    $pdo = null;
+    $db = null;
 }
