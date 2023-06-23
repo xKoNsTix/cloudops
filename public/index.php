@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
         <a href="../public/whatisthis.php" class="loginButton">WTH is this?</a>
     </div>
     <div class="lowerButton">
-        <a href="/public/contact.php" class="loginButton">Text me!</a>
+        <a href="contact.php" class="loginButton">Text me!</a>
     </div>
     <div class="lowerButton">
         <a href="../public/about.php" class="loginButton">About..</a>
