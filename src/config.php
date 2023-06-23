@@ -18,16 +18,16 @@ if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
     echo "checkt webserver nicht";
 
 }
-// make a database connection
-try {
-    $pdo = new PDO($DSN, $DB_USER, $DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+// // make a database connection
+// try {
+//     $pdo = new PDO($DSN, $DB_USER, $DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-    // Run your database operations here
+//     // Run your database operations here
 
-    echo "Database connection successful.";
-} catch (PDOException $e) {
-    die($e->getMessage());
-} finally {
-    $pdo = null;
-}
+//     echo "Database connection successful.";
+// } catch (PDOException $e) {
+//     die($e->getMessage());
+// } finally {
+//     $pdo = null;
+// }
 
