@@ -8,7 +8,8 @@ if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
     $DSN = "pgsql:dbname=$DB_NAME;host=$DB_HOST";
     try {
         $db = new PDO($DSN, $DB_USER, $DB_PASS);
-        echo "<p style='color: white;'> Hallo Andi. This is an UNRELEASED VERSION. . #linuxistcool </p>";
+        $currentDir = getcwd();
+        echo "<p style='color: white;'> Hallo Andi. This is an UNRELEASED VERSION. You're currently in the directory: $currentDir . #linuxistcool </p>";
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
