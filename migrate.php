@@ -1,7 +1,6 @@
 <?php
 
 $statements = [
-
     'CREATE TABLE IF NOT EXISTS users (
         user_id serial PRIMARY KEY,
         username character varying(25) NOT NULL,
@@ -37,7 +36,6 @@ $statements = [
         FOREIGN KEY (fk_image_id) REFERENCES images(image_id),
         FOREIGN KEY (fk_image_owner) REFERENCES users(username)
     )',
-
 ];
 
 try {
@@ -47,8 +45,11 @@ try {
     $DB_HOST = getenv('DB_HOST');
     $DSN = "pgsql:dbname=$DB_NAME;host=$DB_HOST";
 
-    // make a database connection
+    // Make a database connection
     $db = new PDO($DSN, $DB_USER, $DB_PASS);
+
+    // Set PDO error mode to exception
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     foreach ($statements as $statement) {
         $db->exec($statement);
@@ -56,7 +57,12 @@ try {
 
     echo "Tables created successfully.";
 } catch (PDOException $e) {
-    die($e->getMessage());
+    // Log the error
+    error_log('Migration Error: ' . $e->getMessage());
+
+    // Display a generic error message
+    die("An error occurred during migration. Please try again later.");
 } finally {
+    // Close the database connection
     $db = null;
 }
