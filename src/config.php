@@ -7,7 +7,7 @@ if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
     $DB_NAME = "norvi_db";
     $DB_USER = "postgres";
     $DB_PASS = "bilke123";  // fill in password here!!
-    $DSN     = "pgsql:dbname=$DB_NAME;host=localhost";
+    $DSN     = "pgsql:dbname=$DB_NAME;host=172.17.0.4";
     echo "checkt webserver ist da";
 } else {
 
