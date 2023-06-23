@@ -5,14 +5,12 @@ $statements = [
         user_id serial PRIMARY KEY,
         username character varying(25) NOT NULL,
         name character varying(25) NOT NULL,
-        email character varying(320) NOT NULL,
+        email character varying(320) NOT NULL UNIQUE,
         password character varying(256) NOT NULL,
         vkey character varying(256) NOT NULL,
         verified boolean DEFAULT false,
         created_at timestamp without time zone DEFAULT now(),
-        updated_at timestamp without time zone DEFAULT now(),
-        UNIQUE (email),
-        UNIQUE (name)
+        updated_at timestamp without time zone DEFAULT now()
     )',
     'CREATE TABLE IF NOT EXISTS images (
         image_id serial PRIMARY KEY,
