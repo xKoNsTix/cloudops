@@ -4,10 +4,13 @@
 
 
 if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
-    $DB_NAME = "norvi_db";
-    $DB_USER = "postgres";
-    $DB_PASS = "bilke123";  // fill in password here!!
-    $DSN     = "pgsql:dbname=$DB_NAME;host=172.17.0.4";
+    $DB_NAME = getenv('DB_NAME');
+    $DB_USER = getenv('DB_USER');
+    $DB_PASS = getenv('DB_PASS');
+    $DB_HOST = getenv('DB_HOST');
+
+    $DSN = "pgsql:dbname=$DB_NAME;host=$DB_HOST";
+
     echo "checkt webserver ist da";
 } else {
 
@@ -16,18 +19,4 @@ if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
     $DB_PASS = "jacksparrow"; // fill in password here!!
     $DSN     = "pgsql:dbname=$DB_NAME;host=localhost";
     echo "checkt webserver nicht";
-
 }
-// // make a database connection
-// try {
-//     $pdo = new PDO($DSN, $DB_USER, $DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-//     // Run your database operations here
-
-//     echo "Database connection successful.";
-// } catch (PDOException $e) {
-//     die($e->getMessage());
-// } finally {
-//     $pdo = null;
-// }
-
