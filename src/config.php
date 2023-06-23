@@ -13,11 +13,12 @@ if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
 
     echo "<p style='color: white;'> Hallo Andi. This is an UNRELEASED VERSION. . #linuxistcool </p>";
 
-} else {
+ } else {
+    echo "FAIL TO ESTABLISH HOST"
 
-    $DB_NAME = "norvi";
-    $DB_USER = "postgres"; // fill in your local db-username here!!
-    $DB_PASS = "jacksparrow"; // fill in password here!!
-    $DSN     = "pgsql:dbname=$DB_NAME;host=localhost";
-    echo "checkt webserver nicht";
+//     $DB_NAME = "norvi";
+//     $DB_USER = "postgres"; // fill in your local db-username here!!
+//     $DB_PASS = "jacksparrow"; // fill in password here!!
+//     $DSN     = "pgsql:dbname=$DB_NAME;host=localhost";
+//     echo "checkt webserver nicht";
 }
