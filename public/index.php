@@ -118,7 +118,7 @@ if (isset($_GET['id'])) {
 
     <?php if (!isset($_SESSION['USER']) && (!isset($code))) { ?>
 
-        <h1> Welcome to </h1> <img src="../img/norvi_single.png" height="50px"> <br>
+        <h1> Welcome to </h1> <img src="/app/img/norvi_single.png" height="50px"> <br>
         <h2>Please, enjoy the campfire ! </h2><?php } else { ?>
         <h1><?php echo $message . ' ' . $session ?> <?php if ($message == 'Late night session,') { ?> ? <?php } else { ?> !<?php } ?> </h1> <br>
         <h2>Please,<?php if ($message == 'Late night session,') { ?> warm up at <?php } else { ?> enjoy<?php } ?> the campfire ! </h2>
