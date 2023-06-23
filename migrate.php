@@ -41,21 +41,13 @@ $statements = [
 ];
 
 try {
-    $databaseUrl = getenv("postgres://postgres:004dabac018008f7a6b497cdea9f8543@dokku-postgres-norvi-db:5432/norvi_db");
-    $parsedUrl = parse_url($databaseUrl);
-
-    $params = [
-        'host' => $parsedUrl['host'],
-        'port' => $parsedUrl['port'],
-        'dbname' => ltrim($parsedUrl['path'], '/'),
-        'user' => $parsedUrl['user'],
-        'password' => $parsedUrl['pass']
-    ];
-
-    $dsn = "pgsql:host={$params['host']};port={$params['port']};dbname={$params['dbname']}";
+    $DB_NAME = getenv('DB_NAME');
+    $DB_USER = getenv('DB_USER');
+    $DB_PASS = getenv('DB_PASS');
+    $DB_HOST = getenv('DB_HOST');
 
     // make a database connection
-    $pdo = new PDO($dsn, $params['user'], $params['password'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    $db = new PDO($DSN, $DB_USER, $DB_PASS);
 
     foreach ($statements as $statement) {
         $pdo->exec($statement);
