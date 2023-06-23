@@ -28,7 +28,7 @@ if (isset($_SESSION['USER'])) {
     }
 
     if ($time >= '18:00:00' && $time <= '21:59:59') {
-        $message = 'God kveld,';    
+        $message = 'God kveld,';
     }
 } else {
     $message = '';
@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
         <a href="../public/whatisthis.php" class="loginButton">WTH is this?</a>
     </div>
     <div class="lowerButton">
-        <a href="../public/contact.php" class="loginButton">Text me!</a>
+        <a href="/public/contact.php" class="loginButton">Text me!</a>
     </div>
     <div class="lowerButton">
         <a href="../public/about.php" class="loginButton">About..</a>
