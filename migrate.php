@@ -1,6 +1,20 @@
 <?php
 
 $statements = [
+
+    'CREATE TABLE IF NOT EXISTS users (
+        user_id serial PRIMARY KEY,
+        username character varying(25) NOT NULL,
+        name character varying(25) NOT NULL,
+        email character varying(320) NOT NULL,
+        password character varying(256) NOT NULL,
+        vkey character varying(256) NOT NULL,
+        verified boolean DEFAULT false,
+        created_at timestamp without time zone DEFAULT now(),
+        updated_at timestamp without time zone DEFAULT now(),
+        UNIQUE (email),
+        UNIQUE (name)
+    )',
     'CREATE TABLE IF NOT EXISTS images (
         image_id serial PRIMARY KEY,
         image_title character varying(256),
@@ -23,19 +37,7 @@ $statements = [
         FOREIGN KEY (fk_image_id) REFERENCES images(image_id),
         FOREIGN KEY (fk_image_owner) REFERENCES users(username)
     )',
-    'CREATE TABLE IF NOT EXISTS users (
-        user_id serial PRIMARY KEY,
-        username character varying(25) NOT NULL,
-        name character varying(25) NOT NULL,
-        email character varying(320) NOT NULL,
-        password character varying(256) NOT NULL,
-        vkey character varying(256) NOT NULL,
-        verified boolean DEFAULT false,
-        created_at timestamp without time zone DEFAULT now(),
-        updated_at timestamp without time zone DEFAULT now(),
-        UNIQUE (email),
-        UNIQUE (name)
-    )'
+
 ];
 
 try {
