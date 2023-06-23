@@ -41,8 +41,8 @@ $statements = [
 ];
 
 try {
-    $url = getenv("postgres://postgres:004dabac018008f7a6b497cdea9f8543@dokku-postgres-norvi-db:5432/norvi_db");
-    $parsedUrl = parse_url($url);
+    $databaseUrl = getenv("postgres://postgres:004dabac018008f7a6b497cdea9f8543@dokku-postgres-norvi-db:5432/norvi_db");
+    $parsedUrl = parse_url($databaseUrl);
 
     $params = [
         'host' => $parsedUrl['host'],
@@ -60,6 +60,8 @@ try {
     foreach ($statements as $statement) {
         $pdo->exec($statement);
     }
+
+    echo "Tables created successfully.";
 } catch (PDOException $e) {
     die($e->getMessage());
 } finally {
