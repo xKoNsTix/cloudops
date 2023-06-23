@@ -11,7 +11,8 @@ if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
 
     $DSN = "pgsql:dbname=$DB_NAME;host=$DB_HOST";
 
-    echo "checkt webserver ist da";
+    echo "<p style='color: white;'> Hallo Andi. This is an UNRELEASED VERSION. . #linuxistcool </p>";
+
 } else {
 
     $DB_NAME = "norvi";
