@@ -42,7 +42,7 @@ $statements = [
 ];
 
 try {
-    $url = getenv("DATABASE_URL");
+    $url = getenv("postgres://postgres:004dabac018008f7a6b497cdea9f8543@dokku-postgres-norvi-db:5432/norvi_db");
     $params = parse($url);
     $dsn = from_params($params);
 
