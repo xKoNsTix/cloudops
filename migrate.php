@@ -35,7 +35,8 @@ $statements = [
         FOREIGN KEY (fk_image_owner) REFERENCES users(username)
     )',
 ];
-##
+###
+
 try {
     $DB_NAME = getenv('DB_NAME');
     $DB_USER = getenv('DB_USER');
