@@ -54,3 +54,4 @@ echo "Prepare OK";
 $done = $sth->execute(array($title, $fileName, $owner, $nd, $mCoordinates, $pCoordinates, $weather, $info, $location, $cp));
 $_SESSION['UPLOAD'] == 0;
 header("Location: ../public/index.php?message=uploadSuccess");
+
