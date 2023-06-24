@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['HTTP_HOST'] == 'cloudops.tokowa.at') {
+if ($_SERVER['HTTP_HOST'] == 'norvi.tokowa.at') {
     $DB_NAME = getenv('DB_NAME');
     $DB_USER = getenv('DB_USER');
     $DB_PASS = getenv('DB_PASS');
