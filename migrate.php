@@ -3,7 +3,7 @@
 $statements = [
     'CREATE TABLE IF NOT EXISTS users (
         user_id serial PRIMARY KEY,
-        username character varying(25) NOT NULL,
+        username character varying(25) NOT NULL UNIQUE,
         name character varying(25) NOT NULL,
         email character varying(320) NOT NULL UNIQUE,
         password character varying(256) NOT NULL,
